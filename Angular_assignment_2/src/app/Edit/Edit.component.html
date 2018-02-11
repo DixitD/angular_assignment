@@ -1,0 +1,89 @@
+
+<div class='container'>
+    <form>
+        
+          <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" [(ngModel)]="emp.firstName" class="form-control" id="fname"  name="fname"/>
+          </div>
+        
+        
+          <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" class="form-control" id="lname" [(ngModel)]="emp.lastName" name="lname"/>
+          </div>
+        
+        
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" [(ngModel)]="emp.email" id="email" name="email"/>
+            </div>
+        
+        
+            <div class="form-group">
+                <label for="cnumber">Contact Number:</label>
+                <input type="text" class="form-control" id="cnumber" [(ngModel)]="emp.contact" name="contact"/>
+            </div>
+        
+        
+            <div class="form-group">
+                <label for="address">Address: </label>
+                <textarea id="address"  [(ngModel)]="emp.address" class="form-control" name="address"></textarea>    
+            </div>
+        
+        
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input type="text"  [(ngModel)]="emp.userName" class="form-control" id="username" name="username"/>
+            </div>
+        
+       
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" [(ngModel)]="emp.password" class="form-control" id="password" name="password"/>
+            </div>
+        
+     
+        <label>Gender:</label>
+        
+          <div class="radio">
+                <label for="male">
+                    <input type="radio" [(ngModel)]="emp.gender" id="male" name="gender"  value="male"/>
+                    Male 
+                </label>        
+          </div>
+          <div class="radio">
+              <label for="female">
+                  <input type="radio" [(ngModel)]="emp.gender" id="female" name="gender"  value="female"/>
+                   Female 
+                  </label>
+            </div>
+    
+        <label for="qualification">Qualification:</label>
+          <div class="form-group">
+              <select class="form-control" [(ngModel)]="emp.qualification" id="qualification" name="qualification">
+                <option *ngFor="let qua of qualifications" [value]="qua">{{qua}}</option>
+              </select>
+          </div>
+    
+        <label for="experience">Experience:</label>
+          <div class="form-group">
+              <select  class="form-control"[(ngModel)]="emp.experience" id="experience" name="experience">
+                <option *ngFor="let exp of experience" [value]="exp" >{{exp}}</option>
+              </select>
+          </div>
+    
+        <label for="languages">Coding Languages:</label>
+            <div class="form-group">
+            <div class="checkbox" *ngFor="let lang of codingLanguages">
+                <label><input type="checkbox" [id]="lang" (click)="emp.add(lang)" name="languages"/>{{lang}}</label>
+            </div>
+            </div>
+    
+    
+        
+            <div class="form-group">
+                <a [routerLink]="['/employees']" (click)='detail(emp)' ><input type="submit" class="btn btn-primary" id="submit" name="submit" value="Submit"/></a>       
+            </div> 
+    </form>
+    </div>

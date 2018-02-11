@@ -1,0 +1,45 @@
+
+<div class="table-responsive">
+    <table class="table table-bordered" *ngIf="employees && employees.length">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+                <th>Phone No.</th>
+                <th>Address</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Qualification</th>
+                <th>Experience</th>
+                <th>Coding Languages</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of employees">
+                <td>{{e.firstName}}</td>
+                <td>{{e.lastName}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.contact}}</td>
+                <td>{{e.address}}</td>
+                <td>{{e.userName}}</td>
+                <td>{{e.password}}</td>
+                <td>{{e.gender}}</td>
+                <td>{{e.qualification}}</td>
+                <td>{{e.experience}}</td>
+                <td>{{e.languages}}</td>
+                <td>  
+                    <a class="btn btn-primary" [routerLink]="['/EditForm',e.id]">EDIT</a>
+                </td>
+                <td> 
+                     <a class="btn btn-danger" [routerLink]="['/Delete',e.id]">DELETE</a>
+                </td>
+        </tbody>
+      </table>
+
+      <a [routerLink]="['/add']" ><button name="add"  class="btn" >Add Employee</button></a>       
+     
+</div>

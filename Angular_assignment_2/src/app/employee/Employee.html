@@ -1,0 +1,88 @@
+<div class = "container">
+    <h3>Employee Form</h3>
+<form>
+    
+      <div class="form-group">
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="e.firstName" class="form-control" id="fname" 
+         name="fname" placeholder="First Name" required/>
+      </div>
+  
+    <div class="form-group">
+        <label>Last Name:</label>
+        <input type="text" class="form-control" id="lname" [(ngModel)]="e.lastName" 
+        name="lname" placeholder="Last Name" required/>
+    </div>
+
+    <div class="form-group">
+          <label>Email:</label>
+          <input type="email" class="form-control" [(ngModel)]="e.email" id="email" 
+          name="email" placeholder="Email ID" required/>
+    </div>
+    
+    <div class="form-group">
+            <label for="number">Contact Number:</label>
+            <input type="text" class="form-control" id="number" [(ngModel)]="e.contact" 
+            name="contact" placeholder="Phone Number" required/>
+    </div>
+  
+    <div class="form-group">
+            <label>Address: </label>
+            <textarea id="address"  [(ngModel)]="e.address" class="form-control" id="add" 
+            name="address" placeholder="Address"></textarea>      
+    </div>
+
+    <div class="form-group">
+            <label>Username: </label>
+            <input type="text"  [(ngModel)]="e.userName" class="form-control" id="username" 
+            name="username" placeholder="UserName"/>
+    </div>
+
+    <div class="form-group">
+            <label>Password: </label>
+            <input type="password" [(ngModel)]="e.password" class="form-control" id="pass" 
+            name="password" placeholder="Password"/>
+    </div>
+ 
+    <label>Gender:</label>
+      <div class="radio">
+            <label>
+                <input type="radio" [(ngModel)]="e.gender" id="male" name="gender" value="male"/>
+                Male 
+            </label>        
+      </div>
+
+      <div class="radio">
+          <label>
+              <input type="radio" [(ngModel)]="e.gender" id="female" name="gender" value="female"/>
+               Female 
+              </label>
+        </div>
+      
+    <label>Qualification:</label>
+      <div class="form-group">
+          <select class="form-control" [(ngModel)]="e.qualification" id="qualification" name="qualification">
+            <option *ngFor="let qua of qualifications" [value]="qua">{{qua}}</option>
+          </select>
+      </div>
+
+    <label>Experience:</label>
+      <div class="form-group">
+          <select class="form-control" [(ngModel)]="e.experience" id="experience" name="experience">
+            <option *ngFor="let exp of experience" [value]="exp" >{{exp}}</option>
+          </select>
+      </div>
+
+    <label>Coding Languages:</label>
+        <div class="form-group">
+        <div class="checkbox" *ngFor="let lang of codingLanguages">
+            <label><input type="checkbox" [id]="lang" (click)="e.add(lang)" name="languages"/>{{lang}}</label>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <a [routerLink]="['/employees']" (click)='Onsubmit(e)' >
+            <input type="submit" class="btn btn-success" id="submit" name="submit" value="Submit"/></a>       
+        </div>
+</form>
+</div>
